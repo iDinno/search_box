@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Search Box With Animated Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <form class="search-box">
+        <input type="text" placeholder="What are you looking for?" class="input">
+        <button type="submit"><i class="ri-search-2-line"></i></button>
+
+        <div class="slider">
+            <div><i class="ri-music-line"></i></div>
+            <div><i class="ri-movie-2-line"></i></div>
+            <div><i class="ri-camera-2-line"></i></div>            
+        </div>
+    </form>
+</div>    
+    
+<script>
+
+const input = document.querySelector('.input');
+const slider = document.querySelector('.slider');
+
+input.addEventListener('focus', () => {
+    input.placeholder = '';
+    slider.style.display = 'none';
+});
+
+input.addEventListener('blur', () => {
+    input.placeholder = 'What are you looking for?';
+    slider.style.display = 'block';
+    if(input.value) {
+        slider.style.display = 'none';
+    }
+});
+
+ input.addEventListener('input', () => {
+    if(input.value || input.focus ) {
+        slider.style.display = 'none';
+    }
+});
+
+</script>
+
+</body>
+</html>
